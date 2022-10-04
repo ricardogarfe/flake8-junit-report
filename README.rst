@@ -12,13 +12,13 @@ Use it on your CI server to see the flake8 failures with ease.
 .. list-table::
 
     * - Master
-      - .. image:: https://github.com/ricardogarfe/flake8-junit-report/actions/workflows/python-app.yml/badge.svg?branch=master
-            :target: https://github.com/ricardogarfe/flake8-junit-report/actions/workflows/python-app.yml
+      - .. image:: https://github.com/ricardogarfe/flake8-junit-report/actions/workflows/python-ci.yml/badge.svg?branch=master
+            :target: https://github.com/ricardogarfe/flake8-junit-report/actions/workflows/python-ci.yml
       - .. image:: https://codecov.io/gh/ricardogarfe/flake8-junit-report/branch/master/graph/badge.svg
             :target: https://codecov.io/gh/ricardogarfe/flake8-junit-report
     * - Develop
-      - .. image:: https://github.com/ricardogarfe/flake8-junit-report/actions/workflows/python-app.yml/badge.svg?branch=develop
-            :target: https://github.com/ricardogarfe/flake8-junit-report/actions/workflows/python-app.yml
+      - .. image:: https://github.com/ricardogarfe/flake8-junit-report/actions/workflows/python-ci.yml/badge.svg?branch=develop
+            :target: https://github.com/ricardogarfe/flake8-junit-report/actions/workflows/python-ci.yml
       - .. image:: https://codecov.io/gh/ricardogarfe/flake8-junit-report/branch/develop/graph/badge.svg
             :target: https://codecov.io/gh/ricardogarfe/flake8-junit-report
 
