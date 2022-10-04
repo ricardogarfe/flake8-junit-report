@@ -19,9 +19,15 @@ with open(os.path.join(base_dir, "README.rst")) as readme:
 # allow setup.py to be run from any path
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
+
 setuptools.setup(
     name=about["__title__"],
-    version=about["__version__"],
+    setuptools_git_versioning={
+        "enabled": True,
+        "template": "{tag}",
+        "dev_template": "{tag}.dev{ccount}",
+    },
+    setup_requires=["setuptools-git-versioning"],
     description=about["__summary__"],
     long_description=long_description,
     license=about["__license__"],

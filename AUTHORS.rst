@@ -1,8 +1,9 @@
 Credits
 =======
 
-flake8-junit-report is written and maintained by `Carlos Goce
-<https://github.com/carlosgoce>`.
+flake8-junit-report is written and maintained by `Ricardo García Fernández
+<ricardogarfe@gmail.com>` based on great previous versions done by 
+`Carlos Goce<https://github.com/carlosgoce>`.
 
 Contributors
 ------------
