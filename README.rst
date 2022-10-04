@@ -1,5 +1,5 @@
-flake8-junit-report
-===================
+flake8-junit-report-basic
+=========================
 Simple tool that converts a flake8 file to junit format.
 Use it on your CI server to see the flake8 failures with ease.
 
