@@ -1,6 +1,7 @@
 ENVPATH		        ?= .venv
 REQUIREMENTS        ?= requirements.txt
 TEST_REQUIREMENTS   ?= requirements_dev.txt
+CI_REQUIREMENTS   	?= requirements_ci.txt
 
 all: help
 
@@ -24,6 +25,9 @@ install-dependencies: ## Install dependencies from requirements
 install-dev-dependencies: ## Install dev dependencies
 	pip install -r $(TEST_REQUIREMENTS)
 
+install-ci-dependencies: ## Install dev dependencies
+	pip install -r $(CI_REQUIREMENTS)
+
 test-unit: ## Run unit tests
 	coverage run -m pytest --junitxml="unit-test-result.xml"
 	coverage xml
@@ -37,17 +41,15 @@ lint: ## Run linter analysis
 	# exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
 	flake8 . --count --exit-zero --statistics
 
-package: ## Generate python package to deploy
+package: install-ci-dependencies ## Generate python package to deploy
 	pip install --upgrade setuptools
-	pip install --upgrade build
 	python -m build
 
-deploy-testpypi: ## Deploy package to test pypi
-	pip install --upgrade twine
+deploy-testpypi: package ## Deploy package to test pypi
 	twine upload --repository testpypi dist/*
 
-deploy: ## Deploy package to pypi
-	pip install --upgrade twine
+deploy: package ## Deploy package to pypi
+	pip install --upgrade -r $(CI_REQUIREMENTS)
 	twine upload --repository dist/*
 
-.PHONY: help venv-configure venv-activate install-dependencies install-dev-dependencies test-unit black lint package deploy-testpypi deploy
+.PHONY: help venv-configure venv-activate install-dependencies install-dev-dependencies install-ci-dependencies test-unit black lint package deploy-testpypi deploy
