@@ -44,3 +44,5 @@ jobs:
         paths: |
           unit-test-result.xml
       if: always()
+    - name: Test build package
+      run: make package

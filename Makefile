@@ -45,6 +45,7 @@ lint: ## Run linter analysis
 package: install-ci-dependencies ## Generate python package to deploy
 	pip install --upgrade setuptools
 	python -m build
+	twine check dist/*.tar.gz
 
 deploy-testpypi: package ## Deploy package to test pypi
 	twine upload --repository testpypi dist/*
