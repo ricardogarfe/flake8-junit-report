@@ -37,4 +37,17 @@ lint: ## Run linter analysis
 	# exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
 	flake8 . --count --exit-zero --statistics
 
-.PHONY: help venv-configure venv-activate install-dependencies install-dev-dependencies test-unit black lint
+package: ## Generate python package to deploy
+	pip install --upgrade setuptools
+	pip install --upgrade build
+	python -m build
+
+deploy-testpypi: ## Deploy package to test pypi
+	pip install --upgrade twine
+	twine upload --repository testpypi dist/*
+
+deploy: ## Deploy package to pypi
+	pip install --upgrade twine
+	twine upload --repository dist/*
+
+.PHONY: help venv-configure venv-activate install-dependencies install-dev-dependencies test-unit black lint package deploy-testpypi deploy
