@@ -1,4 +1,4 @@
-__title__ = "flake8-junit-report"
+__title__ = "flake8-junit-report-basic"
 __summary__ = "Simple tool that converts a flake8 file to junit format"
 __version__ = "3.0.0"
 __license__ = "BSD 3-Clause License"
